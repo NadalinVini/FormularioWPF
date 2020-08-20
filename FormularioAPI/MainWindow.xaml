@@ -1,0 +1,48 @@
+﻿<Window x:Class="FormularioAPI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FormularioAPI"
+        mc:Ignorable="d"
+        Title="Formulários" Height="450" Width="800">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+            <TabItem Header="Visualizar" Margin="0,0,-95,-2">
+                <DataGrid Name="dataGridClientes" AutoGenerateColumns="False" FontSize="14" RowDetailsVisibilityMode="Visible" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding id}" Header="ID" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding nome}" Header="Nome" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding sobrenome}"  Header="Sobrenome" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding telefone}" Header="Telefone" IsReadOnly="True"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="Atualizar_onClick">Atualizar</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="Excluir_onClick">Excluir</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Novo" Margin="0,0,-96,-2" HorizontalAlignment="Right" Width="176">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="txtNome" Grid.ColumnSpan="2"  HorizontalAlignment="Left" Height="23" Margin="0,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Nome" HorizontalAlignment="Left" Margin="0,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.222,-0.127" Grid.ColumnSpan="2" Width="110"/>
+                    <TextBox x:Name="txtSobrenome" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="0,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Sobrenome" HorizontalAlignment="Left" Margin="0,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.222,-0.127" Grid.ColumnSpan="2" Width="110"/>
+                    <TextBox x:Name="txtTelefone" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="0,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Telefone" HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.222,-0.127" Grid.ColumnSpan="2" Width="110"/>
+                    <Button Grid.ColumnSpan="2" Content="Adicionar" HorizontalAlignment="Left" Margin="0,226,0,0" VerticalAlignment="Top" Width="120" Click="Adicionar_onClick"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
